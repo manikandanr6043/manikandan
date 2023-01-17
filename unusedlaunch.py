@@ -9,11 +9,14 @@ df = pd.DataFrame()
 df1 = pd.DataFrame()
 df2 = pd.DataFrame()
 df3 = pd.DataFrame()
-session = boto3.session.Session.client(aws_access_key_id="IASIAWUH6QJOWHNVX47XN",aws_secret_access_key="DwgjuWJ1pnNfyEHWptDpewIkpEY5EYKmfDUs8hBN",aws_session_token="FwoGZXIvYXdzEPT//////////wEaDEvvTHUObzf3hqumoCL6AWWO+mIzKfzZPnc0vC4nnXlfBgCkm/LVtyiUclWVTfGAJ7RSiuExirBhqUOAgdxEK9IyzFQl7Zyqd1ZQfNis72hDC0hmV6bBskt7paz3/ww9lyCEHSG3sXW4bqKLH64x5rQoChIb5iH7YqmEXDiYGyGKeMQOSB43PGVkQZNgAtgFnomLPrWVoJksyvHipiLEzX6cAxaFZBuomlsH3RfMcq7/zRA0APdq/D1LM+9X2bnlS5fHrnpDjyiPv/5tD0hkFU7wQKP8pM4/dYwMHNwdGnXPbhaDEjwbvS8NK2ZhRDjOjaRwj34ZAYIthstba+72XTmtnnv3F+P9Yxoo8N6bngYyKxTKYsPq4oZNJo7odxijdjxaUIFD8BT1bA+s1/GEzPNu8AgBc1aazizBU6Q=")
-client = boto3.client('autoscaling',region_name="us-west-2")
-client1 = boto3.client('ec2',region_name="us-west-2")
-response = client.describe_launch_configurations()
-response5 = client1.describe_launch_templates()
+session = boto3.session.Session(aws_access_key_id="IASIAWUH6QJOWHNVX47XN",aws_secret_access_key="DwgjuWJ1pnNfyEHWptDpewIkpEY5EYKmfDUs8hBN",aws_session_token="FwoGZXIvYXdzEPT//////////wEaDEvvTHUObzf3hqumoCL6AWWO+mIzKfzZPnc0vC4nnXlfBgCkm/LVtyiUclWVTfGAJ7RSiuExirBhqUOAgdxEK9IyzFQl7Zyqd1ZQfNis72hDC0hmV6bBskt7paz3/ww9lyCEHSG3sXW4bqKLH64x5rQoChIb5iH7YqmEXDiYGyGKeMQOSB43PGVkQZNgAtgFnomLPrWVoJksyvHipiLEzX6cAxaFZBuomlsH3RfMcq7/zRA0APdq/D1LM+9X2bnlS5fHrnpDjyiPv/5tD0hkFU7wQKP8pM4/dYwMHNwdGnXPbhaDEjwbvS8NK2ZhRDjOjaRwj34ZAYIthstba+72XTmtnnv3F+P9Yxoo8N6bngYyKxTKYsPq4oZNJo7odxijdjxaUIFD8BT1bA+s1/GEzPNu8AgBc1aazizBU6Q=")
+asr=session.resourse("autoscaling",region_name="us-west-2")
+ec2=session.resourse("ec2",region_name="us-west-2")
+
+#client = boto3.client('autoscaling',region_name="us-west-2")
+#client1 = boto3.client('ec2',region_name="us-west-2")
+response = asr.describe_launch_configurations()
+response5 = ec2.describe_launch_templates()
 totallTlist=[]
 lanchconflistfind=[]
 lanuchconfigurationlist=[]
