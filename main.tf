@@ -6,7 +6,7 @@ resource "aws_instance" "foo" {
   }
   subnet_id            = "subnet-0601fa7dacf72dfec"
   key_name             = "mfadisable"
-  iam_instance_profile = "${aws_iam_instance_profile.ec2_profile.name}"
+  #iam_instance_profile = "${aws_iam_instance_profile.ec2_profile.name}"
   user_data            = file("script.sh")
 }
 resource "aws_instance" "foo1" {
